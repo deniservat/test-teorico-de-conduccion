@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Repaso Test de Conducir</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <p class="eyebrow">Estudio inteligente</p>
+        <h1>Repaso del test de conducir</h1>
+        <p class="hero-copy">
+          Marcá las preguntas que ya dominás, quedate sólo con las dudosas y
+          retomá donde dejaste.
+        </p>
+      </header>
+
+      <section class="controls">
+        <div class="control-group search-group">
+          <label for="search">Buscar</label>
+          <input
+            id="search"
+            type="search"
+            placeholder="Ej: alcoholemia, prioridad, chaleco..."
+          />
+        </div>
+
+        <div class="control-group">
+          <label for="statusFilter">Estado</label>
+          <select id="statusFilter">
+            <option value="active">Pendientes</option>
+            <option value="all">Todas</option>
+            <option value="mastered">Dominadas</option>
+            <option value="review">Para repasar</option>
+          </select>
+        </div>
+
+        <div class="control-group">
+          <label for="sortMode">Orden</label>
+          <select id="sortMode">
+            <option value="original">Original</option>
+            <option value="random">Aleatorio</option>
+          </select>
+        </div>
+
+        <div class="control-group button-group">
+          <button id="showOnlyUnknown" class="secondary">
+            Sólo no dominadas
+          </button>
+          <button id="resetProgress" class="danger">Resetear progreso</button>
+        </div>
+      </section>
+
+      <section class="summary">
+        <div class="stat-card">
+          <span class="stat-label">Total</span>
+          <strong id="totalCount">0</strong>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Pendientes</span>
+          <strong id="pendingCount">0</strong>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Dominadas</span>
+          <strong id="masteredCount">0</strong>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Repasar</span>
+          <strong id="reviewCount">0</strong>
+        </div>
+      </section>
+
+      <section class="progress-bar-wrap" aria-label="progreso general">
+        <div id="progressBar" class="progress-bar"></div>
+      </section>
+
+      <section class="deck-tools">
+        <p id="resultsLabel" class="results-label"></p>
+        <button id="nextPending" class="primary">
+          Ir a una pregunta pendiente al azar
+        </button>
+      </section>
+
+      <section class="quiz-note">
+        Elegí una respuesta, se marcará como seleccionada, y después usá
+        <strong>Mostrar respuesta</strong> para ver si estuvo bien.
+      </section>
+
+      <main id="questionsList" class="questions-list"></main>
+    </div>
+
+    <template id="questionTemplate">
+      <article class="question-card">
+        <div class="question-topline">
+          <span class="question-number"></span>
+          <span class="question-status"></span>
+        </div>
+
+        <h2 class="question-text"></h2>
+        <img class="question-image" alt="" hidden />
+
+        <div class="options"></div>
+
+        <div class="answer-panel" hidden>
+          <p class="answer-title">Resultado</p>
+          <p class="answer-result"></p>
+          <p class="answer-text"></p>
+        </div>
+
+        <div class="actions">
+          <button class="toggle-answer primary">Mostrar respuesta</button>
+          <button class="mark-mastered secondary">Ya la sé</button>
+          <button class="mark-review secondary">Repasar</button>
+          <button class="clear-state subtle">Quitar marca</button>
+        </div>
+      </article>
+    </template>
+
+    <script src="./questions-data.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>

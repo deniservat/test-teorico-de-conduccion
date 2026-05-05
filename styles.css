@@ -1,0 +1,376 @@
+:root {
+  --bg: #f6efe3;
+  --paper: rgba(255, 252, 246, 0.94);
+  --paper-strong: #fffdf8;
+  --text: #1f2a24;
+  --muted: #5c675f;
+  --line: rgba(31, 42, 36, 0.1);
+  --accent: #17624f;
+  --accent-2: #d4683d;
+  --warning: #8e5d10;
+  --shadow: 0 20px 60px rgba(53, 44, 27, 0.14);
+  --radius: 22px;
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(212, 104, 61, 0.14),
+      transparent 24%
+    ),
+    radial-gradient(
+      circle at top right,
+      rgba(23, 98, 79, 0.18),
+      transparent 22%
+    ),
+    linear-gradient(180deg, #f2e5d3 0%, #f8f4ec 40%, #f0e8db 100%);
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+.page-shell {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 28px 0 64px;
+}
+
+.hero,
+.controls,
+.summary,
+.deck-tools,
+.quiz-note,
+.question-card {
+  background: var(--paper);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: var(--shadow);
+}
+
+.hero {
+  padding: 28px;
+  border-radius: 32px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3.3rem);
+  line-height: 0.96;
+}
+
+.hero-copy {
+  max-width: 720px;
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: 2fr repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  padding: 18px;
+  margin-top: 18px;
+  border-radius: var(--radius);
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.button-group {
+  justify-content: flex-end;
+}
+
+.control-group label {
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+input,
+select,
+button {
+  border-radius: 16px;
+  border: 1px solid var(--line);
+}
+
+input,
+select {
+  width: 100%;
+  padding: 13px 14px;
+  background: var(--paper-strong);
+}
+
+button {
+  padding: 13px 16px;
+  cursor: pointer;
+  transition:
+    transform 140ms ease,
+    background 140ms ease,
+    border-color 140ms ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+button.primary {
+  color: white;
+  background: var(--accent);
+}
+
+button.secondary {
+  background: #edf2ee;
+  color: var(--text);
+}
+
+button.subtle {
+  background: transparent;
+}
+
+button.danger {
+  background: #fff1eb;
+  color: #953819;
+}
+
+.summary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  padding: 16px;
+  margin-top: 18px;
+  border-radius: var(--radius);
+}
+
+.stat-card {
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.55);
+  border-radius: 18px;
+}
+
+.stat-label {
+  display: block;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.stat-card strong {
+  display: block;
+  margin-top: 4px;
+  font-size: 1.7rem;
+}
+
+.progress-bar-wrap {
+  height: 14px;
+  margin-top: 18px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.progress-bar {
+  width: 0;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--accent), #38a177);
+  transition: width 180ms ease;
+}
+
+.deck-tools {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px;
+  margin-top: 18px;
+  border-radius: var(--radius);
+}
+
+.results-label {
+  margin: 0;
+  color: var(--muted);
+}
+
+.quiz-note {
+  margin-top: 18px;
+  padding: 18px;
+  border-radius: var(--radius);
+  color: var(--muted);
+}
+
+.quiz-note strong {
+  color: var(--accent);
+}
+
+.questions-list {
+  display: grid;
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.question-card {
+  padding: 22px;
+  border-radius: 28px;
+}
+
+.question-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.question-number {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.question-status {
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: rgba(23, 98, 79, 0.1);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.question-text {
+  margin: 0;
+  font-size: 1.3rem;
+  line-height: 1.28;
+}
+
+.question-image {
+  width: min(100%, 420px);
+  margin-top: 16px;
+  border-radius: 20px;
+  border: 1px solid var(--line);
+  background: white;
+}
+
+.options {
+  display: grid;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.option {
+  width: 100%;
+  text-align: left;
+  padding: 14px 15px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--line);
+  color: var(--text);
+}
+
+.option.is-selected {
+  border-color: rgba(212, 104, 61, 0.5);
+  background: rgba(212, 104, 61, 0.12);
+}
+
+.option.is-correct {
+  color: #ffffff;
+  border-color: #0b8b53;
+  background: #14b86f;
+}
+
+.option.is-incorrect {
+  color: #ffffff;
+  border-color: #d51f4a;
+  background: #ea2658;
+}
+
+.answer-panel {
+  margin-top: 16px;
+  padding: 16px;
+  border-radius: 18px;
+  background: rgba(23, 98, 79, 0.08);
+}
+
+.answer-panel-correct {
+  background: rgba(20, 184, 111, 0.12);
+}
+
+.answer-panel-incorrect {
+  background: rgba(234, 38, 88, 0.1);
+}
+
+.answer-title {
+  margin: 0 0 6px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.answer-result {
+  margin: 0 0 8px;
+  font-weight: 700;
+}
+
+.answer-text {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.status-mastered {
+  color: var(--accent);
+  background: rgba(23, 98, 79, 0.12);
+}
+
+.status-review {
+  color: var(--warning);
+  background: rgba(214, 162, 63, 0.16);
+}
+
+.empty-state {
+  padding: 28px;
+  text-align: center;
+  color: var(--muted);
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 24px;
+}
+
+@media (max-width: 900px) {
+  .controls,
+  .summary,
+  .deck-tools {
+    grid-template-columns: 1fr;
+  }
+
+  .deck-tools {
+    display: grid;
+  }
+}
