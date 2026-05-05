@@ -66,7 +66,7 @@ function buildFilteredQuestions() {
     const status = getStatus(question.id);
     const inFilter =
       state.filter === "all" ||
-      (state.filter === "active" && status !== "mastered") ||
+(state.filter === "active" && status !== "mastered" && status !== "review") ||
       (state.filter === "mastered" && status === "mastered") ||
       (state.filter === "review" && status === "review");
 

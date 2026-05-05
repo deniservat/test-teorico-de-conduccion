@@ -82,7 +82,6 @@ select {
 }
 
 .hero-copy {
-  max-width: 720px;
   margin: 14px 0 0;
   color: var(--muted);
   font-size: 1.05rem;
