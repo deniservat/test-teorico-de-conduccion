@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://deniservat.github.io/test-teorico-de-conduccion/sitemap.xml
